@@ -12,7 +12,6 @@ class IndexController extends Controller{
     public function actionIndex(){
         $result=Manager::find()->asArray()->all();
         print_var($result);
-        die();
         return $this->render('index');
     }
     public function actionDel() {
