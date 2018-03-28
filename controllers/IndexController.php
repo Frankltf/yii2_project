@@ -10,8 +10,8 @@ use yii\web\Controller;
 use app\Models\Manager;
 class IndexController extends Controller{
     public function actionIndex(){
-    	echo 'aaaaa';
-	$this->render("index");
+        $result=Manager::find()->asArray()->all();
+        var_dump($result);
     }
 }
 

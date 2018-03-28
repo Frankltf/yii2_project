@@ -6,9 +6,8 @@
  * Time: 13:15
  */
 namespace app\models;
-use yii\base\Model;
-class Manager extends Model{
-    public static function tableName (){
-        return '{{%test}}';
-    }
+use yii\db\ActiveRecord;
+class Manager extends ActiveRecord{
+
+
 }
