@@ -5,7 +5,7 @@
  * Date: 2018/3/28
  * Time: 13:15
  */
-namespace app\models;
+namespace app\models
 use yii\db\ActiveRecord;
 class Manager extends ActiveRecord{
 
