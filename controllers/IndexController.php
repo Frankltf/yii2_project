@@ -7,7 +7,7 @@
  */
 namespace app\controllers;
 use yii\web\Controller;
-use app\Models\Manager;
+use app\models\Manager;
 class IndexController extends Controller{
     public function actionIndex(){
         $result=Manager::find()->asArray()->all();
