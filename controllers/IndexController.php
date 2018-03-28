@@ -10,13 +10,8 @@ use yii\web\Controller;
 use app\Models\Manager;
 class IndexController extends Controller{
     public function actionIndex(){
-        $rows = (new \yii\db\Query())
-            ->select(['id', 'username'])
-            ->from('ltf_manager')
-            ->all();
-        var_dump($rows);
-        die();
-        $this->render("index");
+    	echo 'aaaaa';
+	$this->render("index");
     }
 }
 
