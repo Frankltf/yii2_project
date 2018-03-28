@@ -11,8 +11,10 @@ use app\models\Manager;
 class IndexController extends Controller{
     public function actionIndex(){
         $result=Manager::find()->asArray()->all();
-        var_dump($result);
+        print_var($result);
+        return $this->render('index');
     }
+
 }
 
 
