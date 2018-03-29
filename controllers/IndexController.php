@@ -10,8 +10,7 @@ use yii\web\Controller;
 use app\models\Manager;
 class IndexController extends Controller{
     public function actionIndex(){
-        $result=Manager::find()->asArray()->all();
-        print_var($result);
+        $this->layout='@app/views/layouts/layout1.php';
         return $this->render('index');
     }
     public function actionDel() {
@@ -20,7 +19,6 @@ class IndexController extends Controller{
         if($found){
             $res=$found->delete();
         }
-        var_dump($found);
     }
     public function actionAdd(){
         $model_manager=new Manager();
@@ -29,7 +27,6 @@ class IndexController extends Controller{
         $res=$model_manager->save();
         var_dump($res);
     }
-
 }
 
 
