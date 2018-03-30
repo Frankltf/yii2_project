@@ -165,9 +165,10 @@
     </div><!-- /.top-cart-holder -->
 </div><!-- /.top-cart-row-container -->
 <!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->		</div><!-- /.top-cart-row -->
-
+    
 	</div><!-- /.container -->
 </header>
+        <?php echo $content; ?>
 <footer id="footer" class="color-bg">
     
     <div class="container">

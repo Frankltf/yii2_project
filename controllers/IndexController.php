@@ -10,7 +10,7 @@ use yii\web\Controller;
 use app\models\Manager;
 class IndexController extends Controller{
     public function actionIndex(){
-        $this->layout='@app/views/layouts/layout1.php';
+        $this->layout='layout1';
         return $this->render('index');
     }
     public function actionDel() {
