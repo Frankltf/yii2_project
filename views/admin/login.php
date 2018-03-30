@@ -37,14 +37,14 @@
     <div class="span4 box">
         <div class="content-wrap">
             <h6>慕课商城 - 后台管理</h6>
-            <input class="span12" type="text" placeholder="管理员账号" />
-            <input class="span12" type="password" placeholder="管理员密码" />
+            <input class="span12" type="text" id="username" placeholder="管理员账号" />
+            <input class="span12" type="password" id="userpass" placeholder="管理员密码" />
             <a href="#" class="forgot">忘记密码?</a>
             <div class="remember">
                 <input id="remember-me" type="checkbox" />
                 <label for="remember-me">记住我</label>
             </div>
-            <a class="btn-glow primary login" href="index.html">登录</a>
+            <a class="btn-glow primary login" href="javascript:void(0)" onclick="login_module.action_submit()">登录</a>
         </div>
     </div>
 
@@ -58,9 +58,32 @@
 <script src="/yii2_project/assets/js/jquery-latest.js"></script>
 <script src="/yii2_project/assets/js/bootstrap.min.js"></script>
 <script src="/yii2_project/assets/js/theme.js"></script>
-
+<script src="/yii2_project/assets/js/tools.js"></script>
 <!-- pre load bg imgs -->
 <script type="text/javascript">
+    var login_module = {
+        url:"<?php echo yii\helpers\Url::to(['admin/login']) ?>",
+        action_submit:function(){
+            console.log(666)
+            var username=$('#username').val();
+            var userpass=$('#userpass').val();
+            console.log(username)
+            console.log(userpass)
+            var obj={
+                username:username,
+                userpass:userpass,
+            }
+            sendget(this.url,obj,this.getsucfun)
+        },
+        getsucfun:function () {
+            console.log(555)
+        }
+    };
+
+
+
+
+
     $(function () {
         // bg switcher
         var $btns = $(".bg-switch .bg");
@@ -69,11 +92,10 @@
             $btns.removeClass("active");
             $(this).addClass("active");
             var bg = $(this).data("img");
-
             $("html").css("background-image", "url('img/bgs/" + bg + "')");
         });
-
     });
+
 </script>
 
 </body>

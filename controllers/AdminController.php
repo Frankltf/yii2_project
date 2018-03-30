@@ -10,6 +10,11 @@ use yii\web\Controller;
 class AdminController extends Controller{
     public function actionLogin(){
         $this->layout=FALSE;
+        var_dump($_GET);
+        $arr=array(1,2,3,4);
+        print_var($arr);
+
         return $this->render('login');
     }
+    
 }
