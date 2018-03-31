@@ -62,21 +62,21 @@
 <!-- pre load bg imgs -->
 <script type="text/javascript">
     var login_module = {
-        url:"<?php echo yii\helpers\Url::to(['admin/login']) ?>",
+        url:"<?php echo yii\helpers\Url::to(['admin/signin']) ?>",
         action_submit:function(){
-            console.log(666)
+            console.log(JSON)
             var username=$('#username').val();
             var userpass=$('#userpass').val();
-            console.log(username)
-            console.log(userpass)
             var obj={
                 username:username,
                 userpass:userpass,
             }
             sendget(this.url,obj,this.getsucfun)
         },
-        getsucfun:function () {
-            console.log(555)
+        getsucfun:function (data,status) {
+            if(data.load){
+                window.location.href="<?php echo yii\helpers\Url::to(['index/index']) ?>"
+            }
         }
     };
 

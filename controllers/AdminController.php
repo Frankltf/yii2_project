@@ -1,20 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: liutengfei
- * Date: 2018/3/30
- * Time: 12:55
- */
 namespace app\controllers;
 use yii\web\Controller;
+use app\models\Admin;
+use Yii;
 class AdminController extends Controller{
     public function actionLogin(){
         $this->layout=FALSE;
-        var_dump($_GET);
-        $arr=array(1,2,3,4);
-        print_var($arr);
 
         return $this->render('login');
+    }
+    public function actionSignin(){
+        $get_data=Yii::$app->request->get();
+        $model_admin=new Admin();
+        $res=$model_admin->login($get_data);
+        if($res){
+            return buildsuccess();
+        }else{
+            return builderror();
+        }
     }
     
 }

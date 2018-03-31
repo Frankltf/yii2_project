@@ -26,6 +26,6 @@ function sendajax(url,sucfun,errfun){
 }
 function sendget(url,data,fun){
     $.get(url,data,function(data,status){
-            fun(data,status)
+            fun(JSON.parse(data),status)
     });
 }
