@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- bootstrap -->
-    <link href="/yii2_project/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="/yii2_project/assets/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
-    <link href="/yii2_project/assets/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+    <link href="<?php echo PROJECT;?>/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="<?php echo PROJECT;?>/assets/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="<?php echo PROJECT;?>/assets/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
 
     <!-- global styles -->
-    <link rel="stylesheet" type="text/css" href="/yii2_project/assets/css/layout.css" />
-    <link rel="stylesheet" type="text/css" href="/yii2_project/assets/css/elements.css" />
-    <link rel="stylesheet" type="text/css" href="/yii2_project/assets/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo PROJECT;?>/assets/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo PROJECT;?>/assets/css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo PROJECT;?>/assets/css/icons.css" />
 
     <!-- libraries -->
-    <link rel="stylesheet" type="text/css" href="/yii2_project/assets/css/lib/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo PROJECT;?>/assets/css/lib/font-awesome.css" />
 
     <!-- this page specific styles -->
-    <link rel="stylesheet" href="/yii2_project/assets/css/compiled/signin.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo PROJECT;?>/assets/css/compiled/signin.css" type="text/css" media="screen" />
 
     <!-- open sans font -->
     <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
@@ -55,10 +55,10 @@
 </div>
 
 <!-- scripts -->
-<script src="/yii2_project/assets/js/jquery-latest.js"></script>
-<script src="/yii2_project/assets/js/bootstrap.min.js"></script>
-<script src="/yii2_project/assets/js/theme.js"></script>
-<script src="/yii2_project/assets/js/tools.js"></script>
+<script src="<?php echo PROJECT;?>/assets/js/jquery-latest.js"></script>
+<script src="<?php echo PROJECT;?>/assets/js/bootstrap.min.js"></script>
+<script src="<?php echo PROJECT;?>/assets/js/theme.js"></script>
+<script src="<?php echo PROJECT;?>/assets/js/tools.js"></script>
 <!-- pre load bg imgs -->
 <script type="text/javascript">
     var login_module = {
