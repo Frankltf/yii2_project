@@ -52,9 +52,12 @@
 
         <div class="col-xs-12 col-sm-6 no-margin">
             <ul class="right">
-                您好 , 欢迎您回来  , <a href="">退出</a>
-                <li><a href="">注册</a></li>
-                <li><a href="">登录</a></li>
+                <?php if(\Yii::$app->session->get('admin')['isLogin'] == 1):?>
+                    您好 , 欢迎<?php echo \Yii::$app->session->get('admin')['username']; ?>回来  , <a href="">退出</a>
+                <?php else:?>
+                    <li><a href="<?php echo yii\helpers\Url::to(['admin/login'])?>">注册</a></li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['admin/login'])?>">登录</a></li>
+                <?php endif;?>
             </ul>
         </div><!-- /.col -->
     </div><!-- /.container -->

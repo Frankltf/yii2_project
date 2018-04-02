@@ -8,10 +8,14 @@
 namespace app\controllers;
 use yii\web\Controller;
 use app\models\Manager;
+use Yii;
 class IndexController extends Controller{
     public function actionIndex(){
         $this->layout='layout1';
-        return $this->render('index');
+        $session=Yii::$app->session;
+        $sessiondata=$session->get('admin');
+        $result['isLogin']=$sessiondata['isLogin'];
+        return $this->render('index',['data'=>$result]);
     }
     public function actionDel() {
        $id='4';

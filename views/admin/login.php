@@ -64,7 +64,6 @@
     var login_module = {
         url:"<?php echo yii\helpers\Url::to(['admin/signin']) ?>",
         action_submit:function(){
-            console.log(JSON)
             var username=$('#username').val();
             var userpass=$('#userpass').val();
             var remember=$("input[type=checkbox]:checked").val()?$("input[type=checkbox]:checked").val():0;
@@ -76,6 +75,7 @@
             sendget(this.url,obj,this.getsucfun)
         },
         getsucfun:function (data,status) {
+            console.log(data)
             if(data.load){
                 window.location.href="<?php echo yii\helpers\Url::to(['index/index']) ?>"
             }

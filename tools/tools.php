@@ -20,14 +20,14 @@ function buildresult($row,$status='',$msg=''){
 }
 function builderror($status='200',$msg='error'){
     $result=array();
-    $result['load']='false';
+    $result['load']=false;
     $result['status']=$status;
     $result['msg']=$msg;
     return json_encode($result);
 }
 function buildsuccess($status='200',$msg='success'){
     $result=array();
-    $result['load']='true';
+    $result['load']=true;
     $result['status']=$status;
     $result['msg']=$msg;
     return json_encode($result);
