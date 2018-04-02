@@ -19,5 +19,18 @@ class AdminController extends Controller{
             return builderror();
         }
     }
-
+    public function actionRegister(){
+        $this->layout=FALSE;
+        return $this->render('register');
+    }
+    public function actionAdd(){
+        $get_data=Yii::$app->request->get();
+        $model_amin=new Admin();
+        $res=$model_amin->add();
+        if($res){
+            return buildsuccess();
+        }else{
+            return builderror();
+        }
+    }
 }
