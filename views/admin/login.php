@@ -41,7 +41,7 @@
             <input class="span12" type="password" id="userpass" placeholder="管理员密码" />
             <a href="#" class="forgot">忘记密码?</a>
             <div class="remember">
-                <input id="remember-me" type="checkbox" />
+                <input id="remember-me" type="checkbox" value="1" />
                 <label for="remember-me">记住我</label>
             </div>
             <a class="btn-glow primary login" href="javascript:void(0)" onclick="login_module.action_submit()">登录</a>
@@ -67,9 +67,11 @@
             console.log(JSON)
             var username=$('#username').val();
             var userpass=$('#userpass').val();
+            var remember=$("input[type=checkbox]:checked").val()?$("input[type=checkbox]:checked").val():0;
             var obj={
                 username:username,
                 userpass:userpass,
+                remember:remember,
             }
             sendget(this.url,obj,this.getsucfun)
         },
@@ -79,11 +81,6 @@
             }
         }
     };
-
-
-
-
-
     $(function () {
         // bg switcher
         var $btns = $(".bg-switch .bg");

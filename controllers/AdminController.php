@@ -6,7 +6,7 @@ use Yii;
 class AdminController extends Controller{
     public function actionLogin(){
         $this->layout=FALSE;
-        
+
         return $this->render('login');
     }
     public function actionSignin(){
@@ -19,5 +19,5 @@ class AdminController extends Controller{
             return builderror();
         }
     }
-    
+
 }
