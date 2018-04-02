@@ -33,4 +33,8 @@ class AdminController extends Controller{
             return builderror();
         }
     }
+    public function actionLoginout(){
+        Yii::$app->session->remove('admin');
+
+    }
 }

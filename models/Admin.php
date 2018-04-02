@@ -19,6 +19,6 @@ class Admin extends ActiveRecord{
         }
     }
     public function add($data){
-
+        
     }
 }

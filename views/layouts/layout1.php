@@ -53,7 +53,7 @@
         <div class="col-xs-12 col-sm-6 no-margin">
             <ul class="right">
                 <?php if(\Yii::$app->session->get('admin')['isLogin'] == 1):?>
-                    您好 , 欢迎<?php echo \Yii::$app->session->get('admin')['username']; ?>回来  , <a href="">退出</a>
+                    您好 , 欢迎<?php echo \Yii::$app->session->get('admin')['username']; ?>回来  , <a href="<?php echo yii\helpers\Url::to(['admin/loginout'])?>">退出</a>
                 <?php else:?>
                     <li><a href="<?php echo yii\helpers\Url::to(['admin/register'])?>">注册</a></li>
                     <li><a href="<?php echo yii\helpers\Url::to(['admin/login'])?>">登录</a></li>
