@@ -37,4 +37,11 @@ class AdminController extends Controller{
         Yii::$app->session->remove('admin');
 
     }
+    public function actionFindpass(){
+
+    }
+    public function actionIndex(){
+        $this->layout=FALSE;
+        return $this->render('admin');
+    }
 }
