@@ -34,13 +34,15 @@ class AdminController extends Controller{
         }
     }
     public function actionLoginout(){
-        Yii::$app->session->remove('admin');
-
+        Yii::$app->session->removeAll();
+        if(is_null(Yii::$app->session->get('admin')['isLogin'])){
+            $this->redirect(['admin/admin']);
+        }
     }
     public function actionFindpass(){
 
     }
-    public function actionIndex(){
+    public function actionAdmin(){
         $this->layout=FALSE;
         return $this->render('admin');
     }
