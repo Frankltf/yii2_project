@@ -60,4 +60,8 @@ class AdminController extends Controller{
         $this->layout='adminlayout';
         return $this->render('userinfo');
     }
+    public function actionCustom(){
+        $this->layout='adminlayout';
+        return $this->render('custom');
+    }
 }

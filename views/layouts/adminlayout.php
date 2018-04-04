@@ -136,7 +136,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="personal-info.html">个人信息管理</a></li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['admin/userinfo'])?>">个人信息管理</a></li>
                     <li><a href="#">修改密码</a></li>
                     <li><a href="#">订单管理</a></li>
                 </ul>
@@ -184,7 +184,7 @@
             <ul class="submenu">
                 <li><a href="<?php echo yii\helpers\Url::to(['admin/userlist'])?>">用户列表</a></li>
                 <li><a href="<?php echo yii\helpers\Url::to(['admin/newuser'])?>">加入新用户</a></li>
-                <li><a href="<?php echo yii\helpers\Url::to(['admin/userinfo'])?>">用户信息</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['admin/custom'])?>">用户信息</a></li>
             </ul>
         </li>
         <li>
@@ -218,7 +218,7 @@
         </li>
 
         <li>
-            <a href="personal-info.html">
+            <a href="<?php echo yii\helpers\Url::to(['admin/userinfo']);?>">
                 <i class="icon-cog"></i>
                 <span>我的信息</span>
             </a>
