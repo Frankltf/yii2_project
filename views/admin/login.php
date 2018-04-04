@@ -39,7 +39,7 @@
             <h6>慕课商城 - 后台管理</h6>
             <input class="span12" type="text" id="username" placeholder="管理员账号" />
             <input class="span12" type="password" id="userpass" placeholder="管理员密码" />
-            <a href="#" class="<?php yii\helpers\Url::to(['admin/findpass'])?>">忘记密码?</a>
+            <a href="<?php yii\helpers\Url::to(['admin/findpass'])?>" class="forgot">忘记密码?</a>
             <div class="remember">
                 <input id="remember-me" type="checkbox" value="1" />
                 <label for="remember-me">记住我</label>

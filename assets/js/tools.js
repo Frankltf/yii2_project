@@ -29,3 +29,8 @@ function sendget(url,data,fun){
             fun(JSON.parse(data),status)
     });
 }
+function sendpost(url,data,fun) {
+    $.post(url,data,fun,data,function(data, textStatus){
+        fun(JSON.parse(data),status)
+    });
+}

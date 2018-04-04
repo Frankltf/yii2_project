@@ -58,10 +58,16 @@ class AdminController extends Controller{
     }
     public function actionUserinfo(){
         $this->layout='adminlayout';
-        return $this->render('userinfo');
+        $model_admin=new Admin();
+        $res=$model_admin->getuserinfo();
+        return $this->render('userinfo',['data'=>$res]);
     }
     public function actionCustom(){
         $this->layout='adminlayout';
         return $this->render('custom');
+    }
+    public function actionUpdateuser(){
+        $getdata=Yii::$app->request->post();
+        print_var($getdata);
     }
 }

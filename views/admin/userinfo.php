@@ -1,75 +1,121 @@
+<div class="content">
 
-<!-- navbar -->
-
-<!-- end navbar -->
-
-<!-- main container .wide-content is used for this layout without sidebar :)  -->
-<div class="content wide-content">
     <div class="container-fluid">
-        <div class="settings-wrapper" id="pad-wrapper">
-            <!-- avatar column -->
-            <div class="span3 avatar-box">
-                <div class="personal-image">
-                    <img src="<?php echo PROJECT;?>/assets/img/personal-info.png" class="avatar img-circle" />
-                    <p>上传您的头像...</p>
-
-                    <input type="file" />
-                </div>
+        <div id="pad-wrapper" class="new-user">
+            <div class="row-fluid header">
+                <h3>Create a new user</h3>
             </div>
 
-            <!-- edit form column -->
-            <div class="span7 personal-info">
-                <div class="alert alert-info">
-                    <i class="icon-lightbulb"></i>您可以在这里编辑您的个人信息
-                </div>
-                <h5 class="personal-title">个人信息</h5>
-
-                <form />
-                <div class="field-box">
-                    <label>昵称:</label>
-                    <input class="span5 inline-input" type="text" value="Alejandra" />
-                </div>
-                <div class="field-box">
-                    <label>真实姓名:</label>
-                    <input class="span5 inline-input" type="text" value="Galvan" />
-                </div>
-                <div class="field-box">
-                    <label>公司:</label>
-                    <input class="span5 inline-input" type="text" value="Design Co." />
-                </div>
-                <div class="field-box">
-                    <label>电子邮箱:</label>
-                    <input class="span5 inline-input" type="text" value="alejandra@design.com" />
-                </div>
-                <div class="field-box">
-                    <label>性别:</label>
-                    <div class="ui-select">
-                        <select id="user_time_zone" name="user[time_zone]">
-                            <option value="0" />保密
-                            <option value="1" />男
-                            <option value="2" />女
-                        </select>
+            <div class="row-fluid form-wrapper">
+                <!-- left column -->
+                <div class="span9 with-sidebar">
+                    <div class="container">
+                        <form class="new_user_form inline-input" />
+                        <div class="span12 field-box">
+                            <label>Name:</label>
+                            <input class="span9" type="text" value="<?php echo $data['adminuser'];?>" />
+                        </div>
+                        <div class="span12 field-box">
+                            <label>State:</label>
+                            <div class="ui-select span5">
+                                <select>
+                                    <option value="AK" />Alaska
+                                    <option value="HI" />Hawaii
+                                    <option value="CA" />California
+                                    <option value="NV" />Nevada
+                                    <option value="OR" />Oregon
+                                    <option value="WA" />Washington
+                                    <option value="AZ" />Arizona
+                                </select>
+                            </div>
+                        </div>
+                        <div class="span12 field-box">
+                            <label>Company:</label>
+                            <input class="span9" type="text" />
+                        </div>
+                        <div class="span12 field-box">
+                            <label>Email:</label>
+                            <input class="span9" type="text" value="<?php echo $data['adminemail'];?>"/>
+                        </div>
+                        <div class="span12 field-box">
+                            <label>Phone:</label>
+                            <input class="span9" type="text" />
+                        </div>
+                        <div class="span12 field-box">
+                            <label>Website:</label>
+                            <input class="span9" type="text" />
+                        </div>
+                        <div class="span12 field-box">
+                            <label>Address:</label>
+                            <div class="address-fields">
+                                <input class="span12" type="text" placeholder="Street address" />
+                                <input class="span12 small" type="text" placeholder="City" />
+                                <input class="span12 small" type="text" placeholder="State" />
+                                <input class="span12 small last" type="text" placeholder="Postal Code" />
+                            </div>
+                        </div>
+                        <div class="span12 field-box">
+                            <label>New password:</label>
+                            <input class="span9" type="password"  value="<?php echo $data['adminpass'];?>"/>
+                        </div>
+                        <div class="span12 field-box textarea">
+                            <label>Notes:</label>
+                            <textarea class="span9"></textarea>
+                            <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
+                        </div>
+                        <div class="span11 field-box actions">
+                            <input type="button" onclick="submitobj.action_submit()" class="btn-glow primary" value="update user" />
+                            <span>OR</span>
+                            <input type="reset" value="reset" class="reset" />
+                        </div>
+                        </form>
                     </div>
                 </div>
-                <div class="field-box">
-                    <label>用户名:</label>
-                    <input class="span5 inline-input" type="text" value="alegalvan" />
+
+                <!-- side right column -->
+                <div class="span3 form-sidebar pull-right">
+                    <div class="btn-group toggle-inputs hidden-tablet">
+                        <button class="glow left active" data-input="inline">INLINE INPUTS</button>
+                        <button class="glow right" data-input="normal">NORMAL INPUTS</button>
+                    </div>
+                    <div class="alert alert-info hidden-tablet">
+                        <i class="icon-lightbulb pull-left"></i>
+                        Click above to see difference between inline and normal inputs on a form
+                    </div>
+                    <h6>Sidebar text for instructions</h6>
+                    <p>Add multiple users at once</p>
+                    <p>Choose one of the following file types:</p>
+                    <ul>
+                        <li><a href="#">Upload a vCard file</a></li>
+                        <li><a href="#">Import from a CSV file</a></li>
+                        <li><a href="#">Import from an Excel file</a></li>
+                    </ul>
                 </div>
-                <div class="field-box">
-                    <label>密码:</label>
-                    <input class="span5 inline-input" type="password" value="blablablabla" />
-                </div>
-                <div class="field-box">
-                    <label>确认密码:</label>
-                    <input class="span5 inline-input" type="password" value="blablablabla" />
-                </div>
-                <div class="span6 field-box actions">
-                    <input type="button" class="btn-glow primary" value="保存修改" />
-                    <span>或者</span>
-                    <input type="reset" value="取消" class="reset" />
-                </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    var submitobj={
+        url:"<?php echo yii\helpers\Url::to(['admin/signin']) ?>",
+        action_submit:function(){
+            var username=$('#username').val();
+            var userpass=$('#userpass').val();
+            var remember=$("input[type=checkbox]:checked").val()?$("input[type=checkbox]:checked").val():0;
+            var obj={
+                username:username,
+                userpass:userpass,
+                remember:remember,
+            }
+            sendpost(this.url,obj,this.getsucfun)
+        },
+        getsucfun:function (data,status) {
+            console.log(data)
+            if(data.load){
+               alert('success');
+            }
+        }
+    }
+    
+</script>

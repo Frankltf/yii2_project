@@ -6,10 +6,13 @@ class Admin extends ActiveRecord{
     public function login($data){
         $res=self::find()->where(['adminuser'=>$data['username'],'adminpass'=>$data['userpass']])->one();
         if(isset($res)){
+            #TODO:插入登录时间和ip
             // $this->updateAll(['logintime'])
             $session=Yii::$app->session;
-            $lift_time=10;
-            session_set_cookie_params($lift_time);
+            if($data['remember']){
+                $lift_time=24*3600;
+                session_set_cookie_params($lift_time);
+            }
             $session['admin']=[
                 'username'=>  $data['username'],
                 'isLogin'=>1,
@@ -21,5 +24,11 @@ class Admin extends ActiveRecord{
     }
     public function add($data){
         
+    }
+    public function getuserinfo(){
+        $session=Yii::$app->session;
+        $username=$session->get('admin')['username'];
+        $res=$this->find()->where(['adminuser'=>$username])->asArray()->one();
+        return $res;
     }
 }
