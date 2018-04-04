@@ -30,7 +30,7 @@ function sendget(url,data,fun){
     });
 }
 function sendpost(url,data,fun) {
-    $.post(url,data,fun,data,function(data, textStatus){
+    $.post(url,data,fun,function(data, textStatus){
         fun(JSON.parse(data),status)
     });
 }

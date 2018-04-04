@@ -10,53 +10,60 @@
                 <!-- left column -->
                 <div class="span9 with-sidebar">
                     <div class="container">
-                        <form class="new_user_form inline-input" />
                         <div class="span12 field-box">
                             <label>Name:</label>
-                            <input class="span9" type="text" value="<?php echo $data['adminuser'];?>" />
+                            <input class="span9" type="text" id="username" value="<?php echo $data['adminuser']; ?>"/>
                         </div>
                         <div class="span12 field-box">
                             <label>State:</label>
                             <div class="ui-select span5">
                                 <select>
-                                    <option value="AK" />Alaska
-                                    <option value="HI" />Hawaii
-                                    <option value="CA" />California
-                                    <option value="NV" />Nevada
-                                    <option value="OR" />Oregon
-                                    <option value="WA" />Washington
-                                    <option value="AZ" />Arizona
+                                    <option value="AK"/>
+                                    Alaska
+                                    <option value="HI"/>
+                                    Hawaii
+                                    <option value="CA"/>
+                                    California
+                                    <option value="NV"/>
+                                    Nevada
+                                    <option value="OR"/>
+                                    Oregon
+                                    <option value="WA"/>
+                                    Washington
+                                    <option value="AZ"/>
+                                    Arizona
                                 </select>
                             </div>
                         </div>
                         <div class="span12 field-box">
                             <label>Company:</label>
-                            <input class="span9" type="text" />
+                            <input class="span9" type="text"/>
                         </div>
                         <div class="span12 field-box">
                             <label>Email:</label>
-                            <input class="span9" type="text" value="<?php echo $data['adminemail'];?>"/>
+                            <input class="span9" type="text" id="useremail" value="<?php echo $data['adminemail']; ?>"/>
                         </div>
                         <div class="span12 field-box">
                             <label>Phone:</label>
-                            <input class="span9" type="text" />
+                            <input class="span9" type="text"/>
                         </div>
                         <div class="span12 field-box">
                             <label>Website:</label>
-                            <input class="span9" type="text" />
+                            <input class="span9" type="text"/>
                         </div>
                         <div class="span12 field-box">
                             <label>Address:</label>
                             <div class="address-fields">
-                                <input class="span12" type="text" placeholder="Street address" />
-                                <input class="span12 small" type="text" placeholder="City" />
-                                <input class="span12 small" type="text" placeholder="State" />
-                                <input class="span12 small last" type="text" placeholder="Postal Code" />
+                                <input class="span12" type="text" placeholder="Street address"/>
+                                <input class="span12 small" type="text" placeholder="City"/>
+                                <input class="span12 small" type="text" placeholder="State"/>
+                                <input class="span12 small last" type="text" placeholder="Postal Code"/>
                             </div>
                         </div>
                         <div class="span12 field-box">
                             <label>New password:</label>
-                            <input class="span9" type="password"  value="<?php echo $data['adminpass'];?>"/>
+                            <input class="span9" type="password" id="userpass"
+                                   value="<?php echo $data['adminpass']; ?>"/>
                         </div>
                         <div class="span12 field-box textarea">
                             <label>Notes:</label>
@@ -64,11 +71,11 @@
                             <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
                         </div>
                         <div class="span11 field-box actions">
-                            <input type="button" onclick="submitobj.action_submit()" class="btn-glow primary" value="update user" />
+                            <input type="button" onclick="submitobj.action_submit()" class="btn-glow primary"
+                                   value="update user"/>
                             <span>OR</span>
-                            <input type="reset" value="reset" class="reset" />
+                            <input type="reset" value="reset" class="reset"/>
                         </div>
-                        </form>
                     </div>
                 </div>
 
@@ -97,25 +104,27 @@
 </div>
 
 <script>
-    var submitobj={
-        url:"<?php echo yii\helpers\Url::to(['admin/signin']) ?>",
-        action_submit:function(){
-            var username=$('#username').val();
-            var userpass=$('#userpass').val();
-            var remember=$("input[type=checkbox]:checked").val()?$("input[type=checkbox]:checked").val():0;
-            var obj={
-                username:username,
-                userpass:userpass,
-                remember:remember,
+    var submitobj = {
+        url: "<?php echo yii\helpers\Url::to(['admin/updateuser']) ?>",
+        action_submit: function () {
+            var username = $('#username').val();
+            var userpass = $('#userpass').val();
+            var useremail = $('#useremail').val();
+            var obj = {
+                username: username,
+                userpass: userpass,
+                useremail: useremail,
             }
-            sendpost(this.url,obj,this.getsucfun)
+            console.log(obj)
+            console.log(this.url)
+            sendpost(this.url, obj, this.getsucfun)
         },
-        getsucfun:function (data,status) {
+        getsucfun: function (data, status) {
             console.log(data)
-            if(data.load){
-               alert('success');
+            if (data.load) {
+                alert('success');
             }
         }
     }
-    
+
 </script>

@@ -4,6 +4,9 @@ use yii\web\Controller;
 use app\models\Admin;
 use Yii;
 class AdminController extends Controller{
+    public function init(){
+        $this->enableCsrfValidation = false;
+    }
     public function actionLogin(){
         $this->layout=FALSE;
 
@@ -68,6 +71,7 @@ class AdminController extends Controller{
     }
     public function actionUpdateuser(){
         $getdata=Yii::$app->request->post();
-        print_var($getdata);
+        $model_amin=new Admin();
+        $res=$model_amin->updateuser($getdata);
     }
 }

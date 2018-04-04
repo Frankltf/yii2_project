@@ -31,4 +31,16 @@ class Admin extends ActiveRecord{
         $res=$this->find()->where(['adminuser'=>$username])->asArray()->one();
         return $res;
     }
+    public function updateuser($data){
+        $session=Yii::$app->session;
+        $username=$session->get('admin')['username'];
+        $res=$this->find()->where(['adminuser'=>$username])->asArray()->one();
+        $adminid=$res['adminid'];
+        $this->adminuser=$data['username'];
+        $this->adminpass=$data['userpass'];
+        $this->adminemail=$data['useremail'];
+        $res=$this->findOne(['adminid'=>$adminid])->save();
+        var_dump($res);
+        die();
+    }
 }
