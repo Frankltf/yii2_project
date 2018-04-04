@@ -77,7 +77,7 @@
         getsucfun:function (data,status) {
             console.log(data)
             if(data.load){
-                window.location.href="<?php echo yii\helpers\Url::to(['index/index']) ?>"
+                window.location.href="<?php echo yii\helpers\Url::to(['admin/admin']) ?>"
             }
         }
     };
