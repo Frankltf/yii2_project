@@ -3,6 +3,7 @@ namespace app\controllers;
 use yii\web\Controller;
 use app\models\Admin;
 use Yii;
+use yii\data\Pagination;
 class AdminController extends Controller{
     public function init(){
         $this->enableCsrfValidation = false;
@@ -27,9 +28,9 @@ class AdminController extends Controller{
         return $this->render('register');
     }
     public function actionAdd(){
-        $get_data=Yii::$app->request->get();
+        $get_data=Yii::$app->request->post();;
         $model_amin=new Admin();
-        $res=$model_amin->add();
+        $res=$model_amin->add($get_data);
         if($res){
             return buildsuccess();
         }else{
@@ -53,7 +54,13 @@ class AdminController extends Controller{
     }
     public function actionUserlist(){
         $this->layout='adminlayout';
-        return $this->render('user_list');
+        $model_admin=new Admin();
+        $managers=$model_admin->find()->asArray();
+        $count=$managers->count();
+        $pager=new Pagination(['totalCount'=>$count,'pageSize'=>'2']);
+        $userlist=$managers->offset($pager->offset)->limit($pager->limit)->all();
+
+        return $this->render('user_list',['data'=>$userlist,'pager'=>$pager]);
     }
     public function actionNewuser(){
         $this->layout='adminlayout';
@@ -73,6 +80,11 @@ class AdminController extends Controller{
         $getdata=Yii::$app->request->post();
         $model_amin=new Admin();
         $res=$model_amin->updateuser($getdata);
+        if($res){
+            return buildsuccess();
+        }else{
+            return builderror();
+        }
     }
     public function actionSeekpassword(){
         $this->layout=false;
@@ -86,6 +98,17 @@ class AdminController extends Controller{
             if(is_null($res)){
                 return builderror();
             }else{
+                $mail = \Yii::$app->mailer->compose()
+                    ->setFrom(['langerfei@163.com' => 'Yii 中文网'])
+                    ->setTo('1536303470@qq.com')
+                    ->setSubject('修改密码')
+                    //->setTextBody('Yii中文网教程真好 www.yii-china.com')   //发布纯文字文本
+                    ->setHtmlBody("<br>Yii中文网教程真好！www.yii-china.com")    //发布可以带html标签的文本
+                    ->send();
+                if($mail)
+                    echo 'success';
+                else
+                    echo 'fail';
                 return buildsuccess();
             }
         }

@@ -75,171 +75,28 @@
                     </thead>
                     <tbody>
                     <!-- row -->
+                    <?php foreach ($data as $val):?>
                     <tr class="first">
                         <td>
                             <img src="<?php echo PROJECT;?>/assets/img/contact-img.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
+                            <a href="user-profile.html" class="name"> <?php echo $val['adminuser'];?></a>
                         </td>
                         <td>
-                            Mar 13, 2012
+                            <?php echo $val['adminemail'];?>
                         </td>
                         <td>
-                            $ 4,500.00
+                            <?php echo date('Y-h-d H:i:s',$val['logintime'])?>
                         </td>
                         <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
+                            <a href="#"><?php echo $val['adminemail'];?></a>
                         </td>
                     </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img2.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            Jun 03, 2012
-                        </td>
-                        <td>
-                            $ 549.99
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            Mar 01, 2014
-                        </td>
-                        <td>
-                            $ 30.00
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img2.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            Jan 28, 2012
-                        </td>
-                        <td>
-                            $ 1,320.00
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            May 16, 2012
-                        </td>
-                        <td>
-                            $ 89.99
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img2.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            Sep 06, 2012
-                        </td>
-                        <td>
-                            $ 344.00
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            Jul 13, 2012
-                        </td>
-                        <td>
-                            $ 800.00
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img2.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            Feb 13, 2014
-                        </td>
-                        <td>
-                            $ 250.00
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
-                    <!-- row -->
-                    <tr>
-                        <td>
-                            <img src="<?php echo PROJECT;?>/assets/img/contact-img.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
-                        </td>
-                        <td>
-                            Feb 27, 2014
-                        </td>
-                        <td>
-                            $ 1,300.00
-                        </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
-                        </td>
-                    </tr>
+                    <?php endforeach;?>
                     </tbody>
                 </table>
             </div>
             <div class="pagination pull-right">
-                <ul>
-                    <li><a href="#">&#8249;</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&#8250;</a></li>
-                </ul>
+                <?php echo yii\widgets\LinkPager::widget(['pagination'=>$pager])?>
             </div>
             <!-- end users table -->
         </div>

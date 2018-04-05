@@ -13,54 +13,19 @@
                         <form class="new_user_form inline-input" />
                         <div class="span12 field-box">
                             <label>Name:</label>
-                            <input class="span9" type="text" />
-                        </div>
-                        <div class="span12 field-box">
-                            <label>State:</label>
-                            <div class="ui-select span5">
-                                <select>
-                                    <option value="AK" />Alaska
-                                    <option value="HI" />Hawaii
-                                    <option value="CA" />California
-                                    <option value="NV" />Nevada
-                                    <option value="OR" />Oregon
-                                    <option value="WA" />Washington
-                                    <option value="AZ" />Arizona
-                                </select>
-                            </div>
-                        </div>
-                        <div class="span12 field-box">
-                            <label>Company:</label>
-                            <input class="span9" type="text" />
+                            <input id="username" class="span9" type="text" />
                         </div>
                         <div class="span12 field-box">
                             <label>Email:</label>
-                            <input class="span9" type="text" />
+                            <input id="useremail" class="span9" type="text" />
                         </div>
+
                         <div class="span12 field-box">
-                            <label>Phone:</label>
-                            <input class="span9" type="text" />
-                        </div>
-                        <div class="span12 field-box">
-                            <label>Website:</label>
-                            <input class="span9" type="text" />
-                        </div>
-                        <div class="span12 field-box">
-                            <label>Address:</label>
-                            <div class="address-fields">
-                                <input class="span12" type="text" placeholder="Street address" />
-                                <input class="span12 small" type="text" placeholder="City" />
-                                <input class="span12 small" type="text" placeholder="State" />
-                                <input class="span12 small last" type="text" placeholder="Postal Code" />
-                            </div>
-                        </div>
-                        <div class="span12 field-box textarea">
-                            <label>Notes:</label>
-                            <textarea class="span9"></textarea>
-                            <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
+                            <label>Password:</label>
+                            <input id="userpass" class="span9" type="text" />
                         </div>
                         <div class="span11 field-box actions">
-                            <input type="button" class="btn-glow primary" value="Create user" />
+                            <input type="button" onclick="submitobj.action_submit()" class="btn-glow primary" value="Create user" />
                             <span>OR</span>
                             <input type="reset" value="Cancel" class="reset" />
                         </div>
@@ -91,3 +56,30 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    var submitobj = {
+        url: "<?php echo yii\helpers\Url::to(['admin/add']) ?>",
+        action_submit: function () {
+            var username = $('#username').val();
+            var userpass = $('#userpass').val();
+            var useremail = $('#useremail').val();
+            var obj = {
+                username: username,
+                userpass: userpass,
+                useremail: useremail,
+            }
+            console.log(obj)
+            console.log(this.url)
+            sendpost(this.url, obj, this.getsucfun)
+        },
+        getsucfun: function (data, status) {
+            console.log(data)
+            if (data.load) {
+                alert('success');
+            }
+        }
+    }
+
+</script>

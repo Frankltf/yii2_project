@@ -8,6 +8,10 @@ class Admin extends ActiveRecord{
         if(isset($res)){
             #TODO:插入登录时间和ip
             // $this->updateAll(['logintime'])
+            $action=$this->findOne($res['adminid']);
+            $action->logintime=time();
+            $action->loginip=ip2long(Yii::$app->request->userIP);
+            $q=$action->save();
             $session=Yii::$app->session;
             if($data['remember']){
                 $lift_time=24*3600;
@@ -23,7 +27,11 @@ class Admin extends ActiveRecord{
         }
     }
     public function add($data){
-        
+        $this->adminuser=$data['username'];
+        $this->adminemail=$data['useremail'];
+        $this->adminpass=$data['userpass'];
+        $res=$this->save();
+        return $res;
     }
     public function getuserinfo(){
         $session=Yii::$app->session;
@@ -35,13 +43,16 @@ class Admin extends ActiveRecord{
         $session=Yii::$app->session;
         $username=$session->get('admin')['username'];
         $res=$this->find()->where(['adminuser'=>$username])->asArray()->one();
+
         $adminid=$res['adminid'];
-        $this->adminuser=$data['username'];
-        $this->adminpass=$data['userpass'];
-        $this->adminemail=$data['useremail'];
-        $res=$this->findOne(['adminid'=>$adminid])->save();
-        var_dump($res);
-        die();
+
+        $resu=$this->findOne(['adminid'=>$adminid]);
+        $resu->adminuser=$data['username'];
+        $resu->adminpass=$data['userpass'];
+        $resu->adminemail=$data['useremail'];
+        $result=$resu->save();
+        return $result;
+
     }
     public function seekass($data){
         $res=$this->find()
