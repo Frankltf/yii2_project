@@ -74,4 +74,21 @@ class AdminController extends Controller{
         $model_amin=new Admin();
         $res=$model_amin->updateuser($getdata);
     }
+    public function actionSeekpassword(){
+        $this->layout=false;
+        return $this->render('seekpassword');
+    }
+    public function actionSeekpassbyemail(){
+        if(Yii::$app->request->isPost){
+            $postdata=Yii::$app->request->post();
+            $model_admin=new Admin();
+            $res=$model_admin->seekass($postdata);
+            if(is_null($res)){
+                return builderror();
+            }else{
+                return buildsuccess();
+            }
+        }
+        
+    }
 }

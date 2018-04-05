@@ -43,4 +43,11 @@ class Admin extends ActiveRecord{
         var_dump($res);
         die();
     }
+    public function seekass($data){
+        $res=$this->find()
+            ->where('adminuser = :username and adminemail = :useremail',['username'=>$data['username'],'useremail'=>$data['useremail']])
+            ->asArray()
+            ->one();
+        return $res;
+    }
 }

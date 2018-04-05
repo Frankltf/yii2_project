@@ -8,13 +8,17 @@
  * @param errfun
  * 后边两个可以默认不传
  */
-function sendajax(url,sucfun,errfun){
+function sendajax(url,data,sucfun,errfun){
     var async=arguments[3]?arguments[3]:true;
     var cache=arguments[4]?arguments[4]:true;
     $.ajax({
-        url:"demo_test.txt",
+        type:'POST',
+        url:url,
+        data:data,
+        contentType: "application/json;charset=utf-8",
         success:function(result,status,xhr){
-            errfun(result,status,xhr);
+            console.log(result)
+            sucfun(result,status,xhr);
         },
         error:function (result,status,xhr) {
           errfun(result,status,xhr);
@@ -30,7 +34,9 @@ function sendget(url,data,fun){
     });
 }
 function sendpost(url,data,fun) {
-    $.post(url,data,fun,function(data, textStatus){
-        fun(JSON.parse(data),status)
+    $.post(url,data,function(res, textStatus){
+        console.log(111)
+        console.log(res)
+        fun(JSON.parse(res),textStatus)
     });
 }

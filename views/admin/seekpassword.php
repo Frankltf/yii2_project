@@ -38,13 +38,9 @@
         <div class="content-wrap">
             <h6>慕课商城 - 后台管理</h6>
             <input class="span12" type="text" id="username" placeholder="管理员账号" />
-            <input class="span12" type="password" id="userpass" placeholder="管理员密码" />
-            <a href="<?php echo yii\helpers\Url::to(['admin/seekpassword'])?>" class="forgot">忘记密码?</a>
-            <div class="remember">
-                <input id="remember-me" type="checkbox" value="1" />
-                <label for="remember-me">记住我</label>
-            </div>
-            <a class="btn-glow primary login" href="javascript:void(0)" onclick="login_module.action_submit()">登录</a>
+            <input class="span12" type="text" id="useremail" placeholder="管理员邮箱" />
+            <a href="<?php echo yii\helpers\Url::to(['admin/login'])?>" class="forgot">返回登陆?</a>
+            <a class="btn-glow primary login" href="javascript:void(0)" onclick="login_module.action_submit()">找回密码</a>
         </div>
     </div>
 
@@ -62,22 +58,20 @@
 <!-- pre load bg imgs -->
 <script type="text/javascript">
     var login_module = {
-        url:"<?php echo yii\helpers\Url::to(['admin/signin']) ?>",
+        url:"<?php echo yii\helpers\Url::to(['admin/seekpassbyemail']) ?>",
         action_submit:function(){
             var username=$('#username').val();
-            var userpass=$('#userpass').val();
-            var remember=$("input[type=checkbox]:checked").val()?$("input[type=checkbox]:checked").val():0;
+            var useremail=$('#useremail').val();
             var obj={
                 username:username,
-                userpass:userpass,
-                remember:remember,
+                useremail:useremail,
             }
-            sendget(this.url,obj,this.getsucfun)
+            sendpost(this.url,obj,this.getsucfun)
         },
-        getsucfun:function (data,status) {
-            console.log(data)
-            if(data.load){
-                window.location.href="<?php echo yii\helpers\Url::to(['admin/admin']) ?>"
+        getsucfun:function (result,status) {
+            console.log(result)
+            if (result.load) {
+                alert('sucess');
             }
         }
     };
