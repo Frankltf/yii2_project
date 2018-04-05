@@ -114,4 +114,14 @@ class AdminController extends Controller{
         }
         
     }
+    public function actionDeluser(){
+        $getdata=Yii::$app->request->get();
+        $model_amin=new Admin();
+        $res=$model_amin->del($getdata);
+        if($res){
+            return buildsuccess();
+        }else{
+            return builderror();
+        }
+    }
 }

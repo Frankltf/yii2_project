@@ -76,7 +76,7 @@
                     <tbody>
                     <!-- row -->
                     <?php foreach ($data as $val):?>
-                    <tr class="first">
+                    <tr class="first" onclick="login_module.del('<?php echo $val['adminid'];?>')">
                         <td>
                             <img src="<?php echo PROJECT;?>/assets/img/contact-img.png" class="img-circle avatar hidden-phone" />
                             <a href="user-profile.html" class="name"> <?php echo $val['adminuser'];?></a>
@@ -102,4 +102,22 @@
         </div>
     </div>
 </div>
+<script>
+    var login_module = {
+        url:"<?php echo yii\helpers\Url::to(['admin/deluser']) ?>",
+        getsucfun:function (data,status) {
+            console.log(data)
+            if(data.load){
+              alert('success');
+                window.location.href="<?php echo yii\helpers\Url::to(['admin/userlist']) ?>"
+            }
+        },
+        del:function ($id) {
+            var obj={
+                adminid:$id,
+            }
+            sendget(this.url,obj,this.getsucfun)
+        }
+    };
+</script>
 <!-- end main container -->

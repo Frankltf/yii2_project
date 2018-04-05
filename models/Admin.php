@@ -61,4 +61,7 @@ class Admin extends ActiveRecord{
             ->one();
         return $res;
     }
+    public function del($data){
+        return $this->findOne($data['adminid'])->delete();
+    }
 }
