@@ -31,8 +31,8 @@
 
     <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
     <!--[if lt IE 9]>
-    <script src="/assets/js/html5shiv.js"></script>
-    <script src="/assets/js/respond.min.js"></script>
+    <script src="<?php echo PROJECT;?>/assets/js/html5shiv.js"></script>
+    <script src="<?php echo PROJECT;?>/assets/js/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -431,7 +431,7 @@
 <script src="<?php echo PROJECT;?>/assets/js/jquery.customSelect.min.js"></script>
 <script src="<?php echo PROJECT;?>/assets/js/wow.min.js"></script>
 <script src="<?php echo PROJECT;?>/assets/js/scripts.js"></script>
-
+<script src="<?php echo PROJECT;?>/assets/js/tools.js"></script>
 <script>
     $("#createlink").click(function () {
         $(".billing-address").slideDown();

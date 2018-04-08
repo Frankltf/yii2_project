@@ -375,6 +375,7 @@
     <script src="<?php echo PROJECT;?>/assets/js/jquery.customSelect.min.js"></script>
     <script src="<?php echo PROJECT;?>/assets/js/wow.min.js"></script>
 	<script src="<?php echo PROJECT;?>/assets/js/scripts.js"></script>
+    <script src="<?php echo PROJECT;?>/assets/js/tools.js"></script>
     <script>
         $("#createlink").click(function(){
             $(".billing-address").slideDown();
