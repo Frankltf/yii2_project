@@ -178,13 +178,23 @@
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-group"></i>
+                <span>管理员管理</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="<?php echo yii\helpers\Url::to(['admin/userlist'])?>">管理员列表</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['admin/newuser'])?>">加入新管理员</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['admin/custom'])?>">管理员信息</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="dropdown-toggle" href="#">
+                <i class="icon-group"></i>
                 <span>用户管理</span>
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="<?php echo yii\helpers\Url::to(['admin/userlist'])?>">用户列表</a></li>
-                <li><a href="<?php echo yii\helpers\Url::to(['admin/newuser'])?>">加入新用户</a></li>
-                <li><a href="<?php echo yii\helpers\Url::to(['admin/custom'])?>">用户信息</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['member/userlist'])?>">用户列表</a></li>
             </ul>
         </li>
         <li>

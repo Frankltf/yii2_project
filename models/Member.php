@@ -24,6 +24,8 @@ class Member extends ActiveRecord{
             'isLogin'=>1,
         ];
         return $res;
-
+    }
+    public function del($data){
+        return $this->findOne($data['userid'])->delete();
     }
 }

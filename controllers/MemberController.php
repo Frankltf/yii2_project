@@ -10,6 +10,7 @@ namespace app\controllers;
 use yii\web\Controller;
 use Yii;
 use app\models\Member;
+use yii\data\Pagination;
 class MemberController extends Controller{
     public function init(){
         $this->enableCsrfValidation = false;
@@ -44,6 +45,26 @@ class MemberController extends Controller{
             $this->redirect(['member/reg']);
         }else{
             return FALSE;
+        }
+    }
+    public function actionUserlist(){
+        $this->layout='adminlayout';
+        $member_model=new Member();
+        $managers=$member_model->find()->asArray();
+        $count=$managers->count();
+        $pager=new Pagination(['totalCount'=>$count,'pageSize'=>'2']);
+        $userlist=$managers->offset($pager->offset)->limit($pager->limit)->all();
+
+        return $this->render('userlist',['data'=>$userlist,'pager'=>$pager]);
+    }
+    public function actionDel(){
+        $getdata=Yii::$app->request->get();
+        $model_amin=new Member();
+        $res=$model_amin->del($getdata);
+        if($res){
+            return buildsuccess();
+        }else{
+            return builderror();
         }
     }
     public function actionQqreg(){
