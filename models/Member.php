@@ -8,6 +8,8 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 use Yii;
+use yii\debug\models\search\Profile;
+
 class Member extends ActiveRecord{
     public function add($data) {
         $this->username=$data['username'];
@@ -26,6 +28,15 @@ class Member extends ActiveRecord{
         return $res;
     }
     public function del($data){
-        return $this->findOne($data['userid'])->delete();
+            $res=$this->findOne($data['userid'])->delete();
+            if($res){
+                throw new \Exception();
+            }
+
+
+
+    }
+    public function getProfile(){
+        return $this->hasOne(Profile::class,['userid'=>'userid']);
     }
 }

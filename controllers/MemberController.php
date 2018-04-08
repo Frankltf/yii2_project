@@ -50,7 +50,7 @@ class MemberController extends Controller{
     public function actionUserlist(){
         $this->layout='adminlayout';
         $member_model=new Member();
-        $managers=$member_model->find()->asArray();
+        $managers=$member_model->find()->asArray()->joinWith('profile');
         $count=$managers->count();
         $pager=new Pagination(['totalCount'=>$count,'pageSize'=>'2']);
         $userlist=$managers->offset($pager->offset)->limit($pager->limit)->all();
