@@ -29,13 +29,21 @@ class MemberController extends Controller{
         }
     }
     public function actionLogin(){
-        $postdata=Yii::$app->request->get();
+        $getdata=Yii::$app->request->get();
         $member_model=new Member();
-        $res=$member_model->sele($postdata);
+        $res=$member_model->sele($getdata);
         if($res){
             return buildsuccess();
         }else{
             return builderror();
+        }
+    }
+    public function actionLoginout(){
+        Yii::$app->session->removeAll();
+        if(is_null(Yii::$app->session->get('member')['isLogin'])){
+            $this->redirect(['member/reg']);
+        }else{
+            return FALSE;
         }
     }
     public function actionQqreg(){

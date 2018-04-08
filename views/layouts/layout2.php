@@ -49,14 +49,7 @@
                     <li><a href="">我的订单</a></li>
                 </ul>
             </div><!-- /.col -->
-
-            <div class="col-xs-12 col-sm-6 no-margin">
-                <ul class="right">
-                    您好 , 欢迎您回来 <?php echo \Yii::$app->session['loginname']; ?> , <a href="">退出</a>
-                    <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">注册</a></li>
-                    <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">登录</a></li>
-                </ul>
-            </div><!-- /.col -->
+            
         </div><!-- /.container -->
     </nav><!-- /.top-bar -->
     <!-- ============================================================= TOP NAVIGATION : END ============================================================= -->

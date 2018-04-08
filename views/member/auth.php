@@ -148,7 +148,7 @@ use yii\helpers\Html;
         getsucfun:function (data,status) {
             console.log(data)
             if(data.load){
-                alert('success')
+                window.location.href="<?php echo yii\helpers\Url::to(['index/index']) ?>"
             }
         }
     };
