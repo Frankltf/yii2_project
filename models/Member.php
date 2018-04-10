@@ -8,7 +8,7 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 use Yii;
-use yii\debug\models\search\Profile;
+// use app\models\Profile;
 
 class Member extends ActiveRecord{
     public function add($data) {
