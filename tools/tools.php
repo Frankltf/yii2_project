@@ -9,12 +9,14 @@ function buildresults($rows,$status='',$msg=''){
     $result['status']=$status;
     $result['msg']=$msg;
     $result['rows']=$rows;
+    $result['load']=true;
     return json_encode($result);
 }
 function buildresult($row,$status='',$msg=''){
     $result=array();
     $result['status']=$status;
     $result['msg']=$msg;
+    $result['load']=false;
     $result['row']=$row;
     return json_encode($result);
 }

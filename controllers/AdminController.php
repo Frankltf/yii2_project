@@ -4,6 +4,7 @@ use yii\web\Controller;
 use app\models\Admin;
 use Yii;
 use yii\data\Pagination;
+use app\models\Category;
 class AdminController extends Controller{
     public function init(){
         $this->enableCsrfValidation = false;
@@ -124,4 +125,29 @@ class AdminController extends Controller{
             return builderror();
         }
     }
+    public function actionAddcategory(){
+        $this->layout='adminlayout';
+        return $this->render('addcategory');
+    }
+    public function actionAddcate(){
+        $postdata=Yii::$app->request->post();
+        $model_category=new Category();
+        $res=$model_category->savacate($postdata);
+        if($res){
+            return buildsuccess();
+        }else{
+            return builderror();
+        }
+    }
+    public function actionCatechoose(){
+        $model_cate=new Category();
+        $catelist=$model_cate->find()->asArray()->all();
+        if($catelist){
+            return buildresults($catelist);
+        }else{
+            return builderror();
+        }
+        
+    }
+
 }

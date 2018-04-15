@@ -199,6 +199,17 @@
         </li>
         <li>
             <a class="dropdown-toggle" href="#">
+                <i class="icon-group"></i>
+                <span>分类管理</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="<?php echo yii\helpers\Url::to(['admin/addcategory'])?>">添加分类</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['member/userlist'])?>">分类列表</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="dropdown-toggle" href="#">f
                 <i class="icon-edit"></i>
                 <span>表单</span>
                 <i class="icon-chevron-down"></i>
@@ -240,7 +251,7 @@
 
 
 <!-- main container -->
-<?php echo $content;?>
+
 
 
 <!-- scripts -->
@@ -255,7 +266,7 @@
 <script src="<?php echo PROJECT;?>/assets/js/jquery.flot.resize.js"></script>
 <script src="<?php echo PROJECT;?>/assets/js/theme.js"></script>
 <script src="<?php echo PROJECT;?>/assets/js/tools.js"></script>
-
+<?php echo $content;?>
 <script type="text/javascript">
     $(function () {
 
