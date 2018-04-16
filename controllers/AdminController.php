@@ -192,7 +192,12 @@ class AdminController extends Controller{
         print_var($tree);
     }
     public function actionCrontest(){
-        echo builderror();;
+        if(Yii::$app->request->isPost){
+            echo buildsuccess();
+        }
+        if(Yii::$app->request->isGet){
+            echo builderror();
+        }
     }
 
 }
