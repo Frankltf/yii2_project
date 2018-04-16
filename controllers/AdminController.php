@@ -143,13 +143,13 @@ class AdminController extends Controller{
         $model_cate=new Category();
         $catelist=$model_cate->find()->asArray()->all();
         $newcate=$this->yinyong($catelist);
-        print_var($newcate);
-        die();
+
         foreach ($newcate as $value){
-            $arr1['name']=str_repeat('--|',$value['lev']).$value['title'].'<br/>';
+            $arr1['name']=str_repeat('--|',$value['lev']).$value['title'];
             $arr1['id']=$value['cateid'];
             $arr[]=$arr1;
         }
+
         if($arr){
             return buildresults($arr);
         }else{
@@ -190,6 +190,9 @@ class AdminController extends Controller{
             }
         }
         print_var($tree);
+    }
+    public function actionCrontest(){
+        echo builderror();;
     }
 
 }
