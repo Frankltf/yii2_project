@@ -142,12 +142,54 @@ class AdminController extends Controller{
     public function actionCatechoose(){
         $model_cate=new Category();
         $catelist=$model_cate->find()->asArray()->all();
-        if($catelist){
-            return buildresults($catelist);
+        $newcate=$this->yinyong($catelist);
+        print_var($newcate);
+        die();
+        foreach ($newcate as $value){
+            $arr1['name']=str_repeat('--|',$value['lev']).$value['title'].'<br/>';
+            $arr1['id']=$value['cateid'];
+            $arr[]=$arr1;
+        }
+        if($arr){
+            return buildresults($arr);
         }else{
             return builderror();
         }
-        
+    }
+    //递归算法
+    private function wuxianfenlei($data,$id=0,$lev=0){
+        static $son=array();
+        foreach ($data as $k=>$v){
+            if($v['parentid']==$id){
+                $v['lev']=$lev;
+                $son[]=$v;
+                unset($data[$k]);
+                $this->wuxianfenlei($data,$v['cateid'],$lev+1);
+            }
+        }
+        static $arr=array();
+        foreach ($son as $value){
+            $arr1['name']=str_repeat('--|',$value['lev']).$value['title'].'<br/>';
+            $arr1['id']=$value['cateid'];
+            $arr[]=$arr1;
+        }
+        return $arr;
+    }
+    //引用算法
+    private function yinyong($data,$pid=0){
+        $items=array();
+        foreach ($data as $value){
+            $items[$value['cateid']]=$value;
+        }
+        $tree=array();
+        foreach ($items as $value) {
+            if ($pid == $value['parentid']) {//先取出顶级
+                $tree[] = &$items[$value['cateid']];
+            } elseif (isset($items[$value['parentid']])) {//再判定非顶级的pid是否存在，如果存在，则再pid所在的数组下面加入一个字段items，来将本身存进去
+                $items[$value['parentid']]['items'][] = &$items[$value['cateid']];
+            }
+        }
+        print_var($tree);
     }
 
 }

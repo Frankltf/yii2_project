@@ -87,8 +87,9 @@
             console.log(data)
             if (data.load) {
                 var str='';
+                str+='<option value="0">顶级目录</option>';
                     for(var i=0;i<data.rows.length;i++){
-                        str+='<option value="'+data.rows[i]['cateid']+'">'+data.rows[i]['title']+'</option>';
+                        str+='<option value="'+data.rows[i]['id']+'">'+data.rows[i]['name']+'</option>';
                     }
                 $('#categoryparent').append(str);
             }

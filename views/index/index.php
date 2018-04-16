@@ -10,22 +10,26 @@
                 <nav class="yamm megamenu-horizontal" role="navigation">
                     <ul class="nav">
                             <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown">1111</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">1111</a>
                                 <ul class="dropdown-menu mega-menu">
                                     <li class="yamm-content">
                                         <!-- ================================== MEGAMENU VERTICAL ================================== -->
                                         <div class="row">
                                             <div class="col-xs-12 col-lg-4">
                                                 <ul>
-                                                        <li>
-                                                            <a href="">aaaaa</a>
-                                                        </li>
+                                                    <li>
+                                                        <a href="">aaaaa</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">aaaaa</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">aaaaa</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">aaaaa</a>
+                                                    </li>
                                                 </ul>
-                                            </div>
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt=""
-                                                                 src="/yii2_project/assets/images/banners/banner-side.png"/></a>
                                             </div>
                                         </div>
                                         <!-- ================================== MEGAMENU VERTICAL ================================== -->
