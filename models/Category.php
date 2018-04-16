@@ -14,6 +14,6 @@ class Category extends ActiveRecord{
         $this->parentid=$data['categoryparent'];
         $this->createtime=time();
         $res=$this->save();
-        var_dump($res);
+        return $res;
     }
 }

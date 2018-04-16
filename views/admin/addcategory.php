@@ -59,7 +59,7 @@
         url: "<?php echo yii\helpers\Url::to(['admin/addcate']) ?>",
         action_submit: function () {
             var categoryname = $('#categoryname').val();
-            var categoryparent = $('#categoryparent').val();
+            var categoryparent = $('#categoryparent').val()?$('#categoryparent').val():0;
             var obj = {
                 categoryname: categoryname,
                 categoryparent: categoryparent,
@@ -88,7 +88,7 @@
             if (data.load) {
                 var str='';
                     for(var i=0;i<data.rows.length;i++){
-                        str+='<option value="'+data.rows['caeid']+'">'+data.rows['title']+'</option>';
+                        str+='<option value="'+data.rows[i]['cateid']+'">'+data.rows[i]['title']+'</option>';
                     }
                 $('#categoryparent').append(str);
             }
