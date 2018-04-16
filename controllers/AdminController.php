@@ -192,12 +192,19 @@ class AdminController extends Controller{
         print_var($tree);
     }
     public function actionCrontest(){
-        if(Yii::$app->request->isPost){
-            echo buildsuccess();
-        }
-        if(Yii::$app->request->isGet){
-            echo builderror();
-        }
+        $init = curl_init();
+        $url = "http://localhost/yii2_project/web/index.php?r=admin/login";
+        curl_setopt($init,CURLOPT_URL,$url);
+        $res = curl_exec($init);
+        echo $res;
+        // if(Yii::$app->request->isPost){
+        //    print_var($_POST);
+        //     die();
+        // }
+        // if(Yii::$app->request->isGet){
+        //     print_var($_GET);
+        //     die();
+        // }
     }
 
 }
