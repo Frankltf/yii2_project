@@ -36,8 +36,8 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.163.com',
-                'username' => 'langerfei@163.com',
-                'password' => 'jzxnltf131017',        //如果是163邮箱，此处要填授权码
+                'username' => '',
+                'password' => '',        //如果是163邮箱，此处要填授权码
                 'port' => '25',
                 'encryption' => 'tls',
             ],
